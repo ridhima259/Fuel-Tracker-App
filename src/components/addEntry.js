@@ -64,7 +64,7 @@ const AddEntry = ({ navigation,timelineData }) => {
 
             <View style={{ marginTop: 50 }}>
 
-                <View style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10 }}>
+                <View style={styles.horizontalView}>
                     <Image source={require("../assets/gasIcon.png")} style={styles.icons} />
                     <View>
                     <TextInput
@@ -75,11 +75,11 @@ const AddEntry = ({ navigation,timelineData }) => {
                         keyboardType="numeric"
                         placeholderTextColor='#757d82'
                     />
-                    <Text style={{color:'#757d82', fontSize:8,marginLeft:30}}>{'Last value : ' + timelineData[0].miles}</Text>
+                    <Text style={styles.smallText}>{'Last value : ' + timelineData[0].miles}</Text>
                     </View>
                 </View>
 
-                <View style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10 }}>
+                <View style={styles.horizontalView}>
                     <Image source={require("../assets/gasIcon.png")} style={styles.icons} />
                     <TextInput
                         style={styles.input1}
@@ -92,12 +92,12 @@ const AddEntry = ({ navigation,timelineData }) => {
                     <View
                         style={styles.input2}
                     >
-                    <Text style={{color:'#757d82',fontSize:8,position: 'absolute',top: -6,left: 10,backgroundColor:'#2e2f32',paddingHorizontal:4}}>Gas Type</Text>
+                    <Text style={styles.textOnBorder}>Gas Type</Text>
                     <Text style={{color:'#757d82'}}>{'Regular'}</Text>
                     </View>
                 </View>
 
-                <View style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10 }}>
+                <View style={styles.horizontalView}>
                     <Image source={require("../assets/dollarIcon.png")} style={styles.icons} />
                     <TextInput
                         style={styles.input1}
@@ -116,13 +116,13 @@ const AddEntry = ({ navigation,timelineData }) => {
                         placeholderTextColor='#757d82'
                     />
                 </View>
-                <View style ={{height:1,backgroundColor:'#000'}}></View>
+                <View style ={styles.blackLine}></View>
 
-                <View style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10 }}>
+                <View style={styles.horizontalView}>
                     <Image source={require("../assets/calenderIcon.png")} style={styles.icons} />
                     <TouchableOpacity onPress={showDatePicker}>
                         <View style={styles.input1}>
-                            <Text style={{color:'#757d82',fontSize:8,position: 'absolute',top: -6,left: 10,backgroundColor:'#2e2f32',paddingHorizontal:4}}>Date</Text>
+                            <Text style={styles.textOnBorder}>Date</Text>
                             <Text style={{color:'#fff'}}>{currentDate}</Text>
                             <DateTimePickerModal
                                 isVisible={isDatePickerVisible}
@@ -135,7 +135,7 @@ const AddEntry = ({ navigation,timelineData }) => {
                     </TouchableOpacity>
                     <TouchableOpacity onPress={showTimePicker}>
                         <View style={styles.input2}>
-                        <Text style={{color:'#757d82',fontSize:8,position: 'absolute',top: -6,left: 10,backgroundColor:'#2e2f32',paddingHorizontal:4}}>Time</Text>
+                        <Text style={styles.textOnBorder}>Time</Text>
                             <Text style={{color:'#fff'}}>{currentTime}</Text>
                             <DateTimePickerModal
                                 isVisible={isTimeickerVisible}
@@ -147,7 +147,7 @@ const AddEntry = ({ navigation,timelineData }) => {
                         </View>
                     </TouchableOpacity>
                 </View>
-                <View style ={{height:1,backgroundColor:'#000'}}></View>
+                <View style ={styles.blackLine}></View>
 
             </View>
         </View>
@@ -220,9 +220,31 @@ const styles = StyleSheet.create({
         color:'#fff',
         width:(Dimensions.get('window').width -100)/2
     },
+    horizontalView: { 
+        flexDirection: 'row', 
+        alignItems: 'center', 
+        paddingHorizontal: 10 
+    },
+    textOnBorder: {
+        color:'#757d82',
+        fontSize:8,
+        position: 'absolute',
+        top: -6,
+        left: 10,
+        backgroundColor:'#2e2f32',
+        paddingHorizontal:4
+    },
+    smallText: {
+        color:'#757d82',
+        fontSize:8,
+        marginLeft:30
+    },
+    blackLine: {
+        height:1,
+        backgroundColor:'#000'
+    }
 });
 
-// export default AddEntry;
 
 const mapStateToProps = state => ({
     timelineData: state.rootReducer.timelineData

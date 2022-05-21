@@ -2,28 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import {connect} from 'react-redux';
 import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react-native';
 
-// const timelineData = [
-//   {
-//     month: "SEPTEMBER 2021",
-//     date: "Friday, 24",
-//     miles: "66,783 mi",
-//     cost: "$57.00",
-//   },
-//   {
-//     month: "JULY 2021",
-//     date: "Saturday, 17",
-//     miles: "66,506 mi",
-//     cost: "$52.38",
-//   },
-//   {
-//     month: "MAY 2021",
-//     date: "Saturday, 22",
-//     miles: "66,000 mi",
-//     cost: "$55.01",
-//   },
-
-// ];
-
 const Timelines = ({navigation,timelineData}) => {
   const renderItem = ({ item }) => (
     <View style={styles.singleContainer}>

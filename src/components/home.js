@@ -4,11 +4,9 @@ import React from "react";
 import { StyleSheet, Text, View, ScrollView, Image, FlatList, TouchableOpacity } from 'react-native';
 
 
-const Home = ({navigation,personalCount,monthData}) => {
+const Home = ({navigation,monthData}) => {
 
   const onPress = () => navigation.navigate("AddEntry") ;
-
-  console.log("props", personalCount)
 
   const renderItem = ({ item }) => (
     <View style={{ height: 75, justifyContent: 'space-evenly', padding: 5 }}>
